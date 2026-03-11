@@ -2,21 +2,33 @@ from flask import render_template
 
 from app.main import main_bp
 from app.main.content import (
+    ABOUT_COPY,
     COLLABORATORS,
+    DELIVERABLES,
+    DRAFTING_SERVICES,
+    FEASIBILITY_TOPICS,
     INSTITUTIONS,
     LEADERS,
     MARKETS,
     PROCESS_POINTS,
+    REVIEW_STUDY_SERVICES,
     SERVICE_GROUPS,
     SITE,
+    SYSTEM_ENGINEERING_SERVICES,
 )
 
 
 def base_context():
     return {
         "site": SITE,
+        "about_copy": ABOUT_COPY,
         "markets": MARKETS,
         "service_groups": SERVICE_GROUPS,
+        "system_engineering_services": SYSTEM_ENGINEERING_SERVICES,
+        "review_study_services": REVIEW_STUDY_SERVICES,
+        "feasibility_topics": FEASIBILITY_TOPICS,
+        "deliverables": DELIVERABLES,
+        "drafting_services": DRAFTING_SERVICES,
         "institutions": INSTITUTIONS,
         "collaborators": COLLABORATORS,
         "leaders": LEADERS,

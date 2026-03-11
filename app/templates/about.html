@@ -18,8 +18,9 @@
                 <article class="info-card reveal bg-white p-8 lg:col-span-2">
                     <p class="text-sm font-semibold uppercase tracking-widest text-[#e31837]">Firm Overview</p>
                     <h2 class="mt-4 text-3xl font-bold text-gray-900">A consulting practice shaped by project coordination rather than marketing language.</h2>
-                    <p class="mt-6 text-gray-600">C. Archer &amp; Associates supports telecommunications and low voltage systems for institutional and commercial projects. The work includes coordination of bid documents, review of contractor submittals, and site involvement during construction.</p>
-                    <p class="mt-4 text-gray-600">The objective is straightforward: produce clear documents, support owner standards, and help reduce avoidable changes and delays.</p>
+                    {% for paragraph in about_copy[:2] %}
+                    <p class="{% if loop.first %}mt-6{% else %}mt-4{% endif %} text-gray-600">{{ paragraph }}</p>
+                    {% endfor %}
                 </article>
                 <article class="info-card reveal bg-[#111] p-8 text-white">
                     <p class="text-sm font-semibold uppercase tracking-widest text-[#009ee2]">Technical Tools</p>
@@ -40,6 +41,13 @@
                 <h2 class="mb-6 text-3xl font-bold text-white md:text-5xl">How the Firm Works</h2>
                 <p class="mx-auto max-w-2xl text-lg text-blue-100">Collaboration with architects, MEP engineers, owners, end users, and contractors is treated as part of the job.</p>
             </div>
+            <div class="mb-8 grid grid-cols-1 gap-8">
+                {% for paragraph in about_copy[2:] %}
+                <article class="info-card reveal bg-white p-8">
+                    <p class="text-gray-700">{{ paragraph }}</p>
+                </article>
+                {% endfor %}
+            </div>
             <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
                 {% for point in process_points %}
                 <article class="info-card reveal bg-white p-8">
@@ -56,16 +64,59 @@
     <section class="bg-white py-24">
         <div class="mx-auto max-w-7xl px-6 md:px-12">
             <div class="mb-16 reveal text-center">
-                <h2 class="mb-6 text-3xl font-bold text-gray-900 md:text-5xl">Leadership</h2>
-                <p class="mx-auto max-w-2xl text-lg text-gray-600">Presented simply, without the old expandable resume pattern.</p>
+                <h2 class="mb-6 text-3xl font-bold text-gray-900 md:text-5xl">Resumes</h2>
+                <p class="mx-auto max-w-2xl text-lg text-gray-600">The original about page included resume material for both principals. This version keeps that content, but presents it in a cleaner profile layout.</p>
             </div>
-            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+            <div class="grid grid-cols-1 gap-8">
                 {% for leader in leaders %}
-                <article class="leader-card reveal border-t-4 {% if loop.index is odd %}border-[#e31837]{% else %}border-[#009ee2]{% endif %} bg-white p-8">
-                    <p class="text-sm font-semibold uppercase tracking-widest text-gray-500">{{ leader.role }}</p>
-                    <h3 class="mt-4 text-2xl font-bold text-gray-900">{{ leader.name }}</h3>
-                    <p class="mt-4 text-gray-600">{{ leader.summary }}</p>
-                </article>
+                <details class="profile-accordion leader-card reveal overflow-hidden bg-white" {% if loop.first %}open{% endif %}>
+                    <summary class="cursor-pointer border-t-4 {% if loop.index is odd %}border-[#e31837]{% else %}border-[#009ee2]{% endif %} p-8 lg:p-10">
+                        <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+                            <div class="flex items-center gap-5">
+                                <img src="{{ leader.image_url }}" alt="{{ leader.name }}" class="h-24 w-24 rounded-full object-cover ring-4 {% if loop.index is odd %}ring-[#e31837]/20{% else %}ring-[#009ee2]/20{% endif %}">
+                                <div>
+                                    <p class="text-sm font-semibold uppercase tracking-widest {% if loop.index is odd %}text-[#e31837]{% else %}text-[#009ee2]{% endif %}">{{ leader.role }}</p>
+                                    <h3 class="mt-2 text-3xl font-bold text-gray-900">{{ leader.name }}</h3>
+                                    <p class="mt-2 text-base text-gray-600">{{ leader.title }}{% if leader.credentials %} | {{ leader.credentials }}{% endif %}</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm font-semibold uppercase tracking-widest text-gray-500">
+                                <span>View Profile Details</span>
+                                <span class="flex h-10 w-10 items-center justify-center rounded-full {% if loop.index is odd %}bg-[#e31837]{% else %}bg-[#009ee2]{% endif %}">
+                                    <i data-lucide="chevron-down" class="h-5 w-5 text-white"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </summary>
+                    <div class="px-8 pb-8 lg:px-10 lg:pb-10">
+                        <div class="grid grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+                            <div class="{% if loop.index is odd %}bg-gray-50{% else %}bg-[#111]{% endif %} p-8 {% if loop.index is odd %}text-gray-900{% else %}text-white{% endif %}">
+                                <div class="space-y-4 text-sm leading-7 {% if loop.index is odd %}text-gray-700{% else %}text-gray-300{% endif %}">
+                                    {% if leader.education %}
+                                    <p><span class="font-semibold {% if loop.index is odd %}text-gray-900{% else %}text-white{% endif %}">Education</span><br>{{ leader.education }}</p>
+                                    {% endif %}
+                                    <p><span class="font-semibold {% if loop.index is odd %}text-gray-900{% else %}text-white{% endif %}">Experience</span><br>{{ leader.experience }}</p>
+                                    <p><span class="font-semibold {% if loop.index is odd %}text-gray-900{% else %}text-white{% endif %}">Registrations</span><br>{{ leader.registrations }}</p>
+                                    <p><span class="font-semibold {% if loop.index is odd %}text-gray-900{% else %}text-white{% endif %}">Professional Affiliations</span><br>{{ leader.affiliations }}</p>
+                                </div>
+                                <div class="mt-8 flex flex-wrap gap-3">
+                                    <a href="{{ leader.profile_url }}" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 border {% if loop.index is odd %}border-[#009ee2] text-[#009ee2] hover:bg-[#009ee2]{% else %}border-[#e31837] text-[#e31837] hover:bg-[#e31837]{% endif %} px-6 py-3 text-xs uppercase tracking-widest transition-all duration-300 hover:text-white">
+                                        LinkedIn Profile <i data-lucide="external-link" class="h-4 w-4"></i>
+                                    </a>
+                                    <a href="{{ leader.credential_url }}" target="_blank" rel="noreferrer" class="inline-flex items-center gap-2 border {% if loop.index is odd %}border-[#e31837] text-[#e31837] hover:bg-[#e31837]{% else %}border-[#009ee2] text-[#009ee2] hover:bg-[#009ee2]{% endif %} px-6 py-3 text-xs uppercase tracking-widest transition-all duration-300 hover:text-white">
+                                        Verify Credential
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="p-2 lg:p-0">
+                                <p class="text-lg font-semibold text-gray-900">{{ leader.summary }}</p>
+                                {% for paragraph in leader.bio %}
+                                <p class="mt-5 text-gray-600">{{ paragraph }}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </details>
                 {% endfor %}
             </div>
         </div>
