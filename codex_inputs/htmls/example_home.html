@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C. Archer & Associates | Technology Consultants</title>
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons via CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#e31837',
+                            blue: '#009ee2'
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Base typography improvements */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="min-h-screen text-gray-800 bg-white selection:bg-[#009ee2] selection:text-white overflow-x-hidden flex flex-col">
+
+    <!-- Header / Navbar -->
+    <header id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-white py-4">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+            
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#" class="text-sm font-semibold uppercase tracking-wide transition-colors duration-200 text-[#e31837] border-b-2 border-[#e31837] pb-1">Home</a>
+                <a href="#about" class="text-sm font-semibold uppercase tracking-wide transition-colors duration-200 text-gray-800 hover:text-[#e31837]">About Us</a>
+                <a href="#services" class="text-sm font-semibold uppercase tracking-wide transition-colors duration-200 text-gray-800 hover:text-[#e31837]">Services</a>
+                <a href="#projects" class="text-sm font-semibold uppercase tracking-wide transition-colors duration-200 text-gray-800 hover:text-[#e31837]">Projects</a>
+                <a href="#contact" class="text-sm font-semibold uppercase tracking-wide transition-colors duration-200 text-gray-800 hover:text-[#e31837]">Contact Us</a>
+            </nav>
+
+            <!-- Logo -->
+            <div class="ml-auto md:ml-0 flex flex-col items-center justify-center cursor-pointer group">
+                <svg width="40" height="40" viewBox="0 0 100 100" class="mb-1 transform group-hover:scale-105 transition-transform duration-300">
+                    <path d="M 80 50 C 80 20, 50 10, 30 30 C 10 50, 30 90, 60 85 C 75 80, 80 65, 80 65" fill="none" stroke="#e31837" stroke-width="12" stroke-linecap="round"/>
+                    <circle cx="50" cy="50" r="8" fill="#e31837" />
+                </svg>
+                <div class="text-center">
+                    <h1 class="text-xl font-bold tracking-widest leading-none text-gray-900">ARCHER</h1>
+                    <p class="text-[0.55rem] tracking-[0.2em] font-medium mt-1 text-gray-500">AND ASSOCIATES</p>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-btn" class="md:hidden ml-6 text-gray-800 focus:outline-none">
+                <span id="icon-menu"><i data-lucide="menu" class="w-7 h-7"></i></span>
+                <span id="icon-close" class="hidden"><i data-lucide="x" class="w-7 h-7"></i></span>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-2xl border-t border-gray-100 py-4 px-6 flex-col space-y-4 animate-fade-in">
+            <a href="#" class="text-left text-sm font-bold uppercase tracking-wider py-3 border-b border-gray-50 flex items-center justify-between text-[#e31837]">
+                Home <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </a>
+            <a href="#about" class="text-left text-sm font-bold uppercase tracking-wider py-3 border-b border-gray-50 flex items-center justify-between text-gray-800">About Us</a>
+            <a href="#services" class="text-left text-sm font-bold uppercase tracking-wider py-3 border-b border-gray-50 flex items-center justify-between text-gray-800">Services</a>
+            <a href="#projects" class="text-left text-sm font-bold uppercase tracking-wider py-3 border-b border-gray-50 flex items-center justify-between text-gray-800">Projects</a>
+            <a href="#contact" class="text-left text-sm font-bold uppercase tracking-wider py-3 border-b border-gray-50 flex items-center justify-between text-gray-800">Contact Us</a>
+            <div class="pt-4">
+                <button class="w-full bg-[#009ee2] text-white py-3 text-sm font-bold uppercase tracking-widest text-center">
+                    Get an Estimate
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow">
+        
+        <!-- Hero Section -->
+        <section class="relative h-screen min-h-[700px] flex items-center pt-20">
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" alt="Server Racks" class="w-full h-full object-cover"/>
+                <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent"></div>
+            </div>
+            
+            <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full">
+                <div class="max-w-2xl">
+                    <h2 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-6 animate-fade-in-up drop-shadow-lg">
+                        Low voltage<br/><span class="text-[#009ee2]">solutions</span><br/>for your projects
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-200 mb-10 leading-relaxed font-light drop-shadow-md border-l-4 border-[#e31837] pl-6 animate-fade-in-up" style="animation-delay: 0.1s;">
+                        Systems that use low voltage have become more prominent in building designs with the advances in technology. We design systems that complement, protect and enhance your building's infrastructure.
+                    </p>
+                    <div class="flex flex-wrap gap-4 animate-fade-in-up" style="animation-delay: 0.2s;">
+                        <a href="#services" class="group flex items-center gap-2 bg-[#e31837] border border-[#e31837] text-white px-8 py-4 text-sm uppercase tracking-widest hover:bg-transparent hover:text-white transition-all duration-300">
+                            Our Services <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="#contact" class="group flex items-center gap-2 border border-white text-white px-8 py-4 text-sm uppercase tracking-widest hover:bg-white hover:text-black transition-all duration-300">
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick About Snapshot -->
+        <section id="about" class="py-24 bg-white relative">
+            <div class="max-w-7xl mx-auto px-6 md:px-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    
+                    <div class="relative group">
+                        <div class="absolute -inset-4 bg-[#009ee2]/10 rounded-lg transform -rotate-2 transition-transform group-hover:rotate-0 duration-500"></div>
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Architectural Blueprints" class="relative z-10 w-full h-auto shadow-2xl"/>
+                        <div class="absolute -bottom-8 -right-8 bg-black p-8 text-white z-20 shadow-xl hidden md:block">
+                            <div class="text-4xl font-bold text-[#e31837] mb-2">25+</div>
+                            <div class="text-sm uppercase tracking-widest font-semibold">Years of<br/>Excellence</div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col justify-center">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-4xl font-bold text-gray-900">Engineering the Future</h3>
+                            <div class="w-12 h-12 rounded-full bg-[#e31837] flex items-center justify-center shadow-lg transform rotate-45">
+                                <i data-lucide="arrow-right" class="w-5 h-5 text-white"></i>
+                            </div>
+                        </div>
+                        
+                        <p class="text-xl text-gray-600 font-light leading-relaxed mb-6">
+                            <strong class="font-semibold text-gray-900">C. Archer & Associates</strong> is a premier Technology Consultant partnership, specializing in the development and design of low voltage systems for new, existing, and renovated commercial spaces.
+                        </p>
+                        <p class="text-gray-600 mb-8">
+                            We bridge the gap between architectural vision and technical reality, ensuring seamless integration of critical infrastructure from day one.
+                        </p>
+                        
+                        <div>
+                            <a href="#about" class="group inline-flex items-center gap-2 border border-[#009ee2] text-[#009ee2] px-8 py-3 text-sm uppercase tracking-widest hover:bg-[#009ee2] hover:text-white transition-all duration-300">
+                                Read Our Story <i data-lucide="chevron-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Overview Banner -->
+        <section id="services" class="py-24 bg-[#009ee2]">
+            <div class="max-w-7xl mx-auto px-6 md:px-12">
+                
+                <div class="text-center mb-16">
+                    <h3 class="text-3xl md:text-5xl font-bold text-white mb-6">Integrated Solutions</h3>
+                    <p class="text-blue-100 max-w-2xl mx-auto text-lg">Delivering comprehensive low voltage designs tailored to your specific industry requirements.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- Architect Service Card -->
+                    <div class="bg-white group cursor-pointer hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+                        <div class="relative overflow-hidden h-64">
+                            <div class="absolute inset-0 bg-[#e31837]/20 group-hover:bg-transparent transition-colors z-10"></div>
+                            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Modern Office Space" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"/>
+                        </div>
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h4 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#009ee2] transition-colors">Systems for Architects</h4>
+                            <p class="text-gray-600 mb-6 flex-grow">Aesthetic integration of structured cabling, AV systems, and security into modern architectural designs without compromising visual integrity.</p>
+                            <div class="flex items-center gap-2 text-[#e31837] font-semibold text-sm uppercase tracking-widest">
+                                Explore Solutions <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-2 transition-transform"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Engineer Service Card -->
+                    <div class="bg-white group cursor-pointer hover:shadow-2xl transition-all duration-300 flex flex-col h-full">
+                        <div class="relative overflow-hidden h-64">
+                            <div class="absolute inset-0 bg-[#009ee2]/20 group-hover:bg-transparent transition-colors z-10"></div>
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Building Rendering" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"/>
+                        </div>
+                        <div class="p-8 flex-grow flex flex-col">
+                            <h4 class="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#e31837] transition-colors">Systems for Engineering</h4>
+                            <p class="text-gray-600 mb-6 flex-grow">Robust, scalable, and code-compliant low voltage infrastructure designs supporting HVAC, complex security, and high-density data networks.</p>
+                            <div class="flex items-center gap-2 text-[#009ee2] font-semibold text-sm uppercase tracking-widest">
+                                Explore Solutions <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-2 transition-transform"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#111] py-16 border-t-[10px] border-[#e31837]">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12">
+            
+            <!-- Column 1: Brand -->
+            <div class="col-span-1 md:col-span-2 flex flex-col items-start gap-6">
+                <div class="flex flex-col items-center justify-center cursor-pointer">
+                    <svg width="40" height="40" viewBox="0 0 100 100" class="mb-1">
+                        <path d="M 80 50 C 80 20, 50 10, 30 30 C 10 50, 30 90, 60 85 C 75 80, 80 65, 80 65" fill="none" stroke="#e31837" stroke-width="12" stroke-linecap="round"/>
+                        <circle cx="50" cy="50" r="8" fill="#e31837" />
+                    </svg>
+                    <div class="text-center">
+                        <h1 class="text-xl font-bold tracking-widest leading-none text-white">ARCHER</h1>
+                        <p class="text-[0.55rem] tracking-[0.2em] font-medium mt-1 text-gray-400">AND ASSOCIATES</p>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-sm leading-relaxed max-w-sm">
+                    C. Archer & Associates is an industry-leading Technology Consultant partnership, specializing in the development and design of cutting-edge low voltage systems.
+                </p>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="flex flex-col space-y-4">
+                <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-2">Navigation</h4>
+                <a href="#" class="text-left text-sm text-gray-400 hover:text-[#009ee2] transition-colors w-fit">Home</a>
+                <a href="#about" class="text-left text-sm text-gray-400 hover:text-[#009ee2] transition-colors w-fit">About Us</a>
+                <a href="#services" class="text-left text-sm text-gray-400 hover:text-[#009ee2] transition-colors w-fit">Services</a>
+                <a href="#projects" class="text-left text-sm text-gray-400 hover:text-[#009ee2] transition-colors w-fit">Projects</a>
+                <a href="#contact" class="text-left text-sm text-gray-400 hover:text-[#009ee2] transition-colors w-fit">Contact Us</a>
+            </div>
+
+            <!-- Column 3: Contact -->
+            <div class="flex flex-col space-y-4">
+                <h4 class="text-white font-bold uppercase tracking-widest text-sm mb-2">Contact</h4>
+                <div class="text-sm text-gray-400 flex flex-col gap-3">
+                    <span class="flex items-center gap-2 hover:text-white cursor-pointer">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-[#e31837]"></i> New Cumberland, PA
+                    </span>
+                    <span class="flex items-center gap-2 hover:text-white cursor-pointer">
+                        <i data-lucide="phone" class="w-4 h-4 text-[#e31837]"></i> 717-409-8311
+                    </span>
+                    <span class="flex items-center gap-2 hover:text-white cursor-pointer">
+                        <i data-lucide="mail" class="w-4 h-4 text-[#e31837]"></i> carcher@carcherassociates.com
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- Bottom Bar -->
+        <div class="max-w-7xl mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-xs text-gray-600">&copy; Copyright <span id="year"></span> C. Archer and Associates, Inc. All rights reserved.</p>
+            <p class="text-xs text-gray-600 flex items-center gap-1">
+                Engineered by <span class="text-gray-400 font-semibold cursor-pointer hover:text-white transition-colors">Authentic Dynamics</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Logic -->
+    <script>
+        // 1. Initialize Lucide Icons
+        lucide.createIcons();
+
+        // 2. Set dynamic year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // 3. Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                // Add scrolled styles
+                navbar.classList.add('bg-white/95', 'backdrop-blur-sm', 'shadow-md', 'py-2', 'border-b', 'border-gray-100');
+                navbar.classList.remove('py-4');
+            } else {
+                // Remove scrolled styles
+                navbar.classList.remove('bg-white/95', 'backdrop-blur-sm', 'shadow-md', 'py-2', 'border-b', 'border-gray-100');
+                navbar.classList.add('py-4');
+            }
+        });
+
+        // 4. Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const iconMenu = document.getElementById('icon-menu');
+        const iconClose = document.getElementById('icon-close');
+        let isMenuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            
+            if (isMenuOpen) {
+                // Open menu
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                // Swap icons
+                iconMenu.classList.add('hidden');
+                iconClose.classList.remove('hidden');
+            } else {
+                // Close menu
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+                // Swap icons
+                iconMenu.classList.remove('hidden');
+                iconClose.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>

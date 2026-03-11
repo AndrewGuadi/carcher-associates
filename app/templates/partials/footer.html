@@ -1,0 +1,32 @@
+<footer class="border-t border-slate-200 bg-slate-950 text-slate-200">
+    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-14 lg:grid-cols-[1.5fr_1fr_1fr] lg:px-10">
+        <div class="space-y-4">
+            <p class="text-lg font-semibold tracking-[0.08em] text-white">{{ site.name }}</p>
+            <p class="max-w-xl text-sm leading-7 text-slate-400">{{ site.tagline }}</p>
+        </div>
+        <div class="space-y-4">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Navigation</p>
+            <div class="grid gap-3 text-sm">
+                <a href="{{ url_for('main.index') }}" class="w-fit hover:text-white">Home</a>
+                <a href="{{ url_for('main.about') }}" class="w-fit hover:text-white">About</a>
+                <a href="{{ url_for('main.services') }}" class="w-fit hover:text-white">Services</a>
+                <a href="{{ url_for('main.projects') }}" class="w-fit hover:text-white">Projects</a>
+                <a href="{{ url_for('main.contact') }}" class="w-fit hover:text-white">Contact</a>
+            </div>
+        </div>
+        <div class="space-y-4">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Contact</p>
+            <div class="grid gap-3 text-sm text-slate-300">
+                <p>{{ site.location }}</p>
+                <p>{{ site.phone }}</p>
+                <p>{{ site.email }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="border-t border-slate-800">
+        <div class="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-5 text-xs text-slate-500 md:flex-row md:items-center md:justify-between lg:px-10">
+            <p>&copy; <span data-year></span> {{ site.name }}. All rights reserved.</p>
+            <p>Demo website direction for an established consulting practice.</p>
+        </div>
+    </div>
+</footer>

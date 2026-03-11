@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page_title }} | {{ site.name }}</title>
+    <meta name="description" content="{{ site.tagline }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: {
+                            950: '#0f172a',
+                            800: '#1e293b',
+                            600: '#475569'
+                        },
+                        steel: {
+                            700: '#4b647d',
+                            500: '#6f8599'
+                        },
+                        mist: '#f8fafc',
+                        line: '#cbd5e1'
+                    }
+                }
+            }
+        };
+    </script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
+</head>
+<body class="site-shell text-ink-800">
+    {% include "partials/nav.html" %}
+    <div class="page-grid">
+        {% block content %}{% endblock %}
+    </div>
+    {% include "partials/footer.html" %}
+    <script src="{{ url_for('static', filename='js/site.js') }}"></script>
+</body>
+</html>

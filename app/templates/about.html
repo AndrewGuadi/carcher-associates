@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+    <section class="px-6 pb-12 pt-14 lg:px-10 lg:pt-16">
+        <div class="mx-auto max-w-7xl">
+            <div class="content-panel reveal grid gap-10 px-8 py-10 lg:grid-cols-[1fr_0.9fr] lg:px-10 lg:py-12">
+                <div>
+                    <p class="section-label text-xs font-semibold uppercase text-ink-600">About the Firm</p>
+                    <h1 class="mt-5 text-4xl font-semibold leading-tight text-ink-950">A consulting practice built on coordination, detail, and long-term usability.</h1>
+                    <p class="mt-6 max-w-3xl text-lg leading-8 text-ink-600">The firm’s work centers on telecommunications and low voltage systems for institutional and commercial projects. The approach is grounded in clear documentation, practical construction coordination, and systems that support owner standards over time.</p>
+                </div>
+                <div class="media-card media-card-campus"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 py-16 lg:px-10">
+        <div class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-4">
+            <article class="metric-card reveal p-6 lg:col-span-2">
+                <p class="text-xs uppercase tracking-[0.2em] text-ink-600">Philosophy</p>
+                <p class="mt-4 text-base leading-7 text-ink-600">Detail matters because coordinated documents reduce uncertainty in bidding and construction. The design work stays focused on owner needs, maintainability, and realistic execution in the field.</p>
+            </article>
+            <article class="metric-card reveal p-6">
+                <p class="text-xs uppercase tracking-[0.2em] text-ink-600">Documentation</p>
+                <p class="mt-4 text-base leading-7 text-ink-600">Clear bid sets and submittal review help limit change orders and avoid preventable delays.</p>
+            </article>
+            <article class="metric-card reveal p-6">
+                <p class="text-xs uppercase tracking-[0.2em] text-ink-600">Drafting</p>
+                <p class="mt-4 text-base leading-7 text-ink-600">AutoCAD and Revit support are part of the workflow where project teams require it.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="bg-slate-50 px-6 py-16 lg:px-10">
+        <div class="mx-auto max-w-7xl">
+            <div class="reveal max-w-3xl">
+                <div class="eyebrow-rule"></div>
+                <p class="section-label mt-5 text-xs font-semibold uppercase text-ink-600">How They Work</p>
+                <h2 class="mt-5 text-3xl font-semibold text-ink-950">Collaboration with the broader project team is part of the service, not an afterthought.</h2>
+            </div>
+            <div class="mt-10 grid gap-4 md:grid-cols-2">
+                {% for point in process_points %}
+                <article class="content-panel reveal p-6">
+                    <p class="text-base leading-7 text-ink-600">{{ point }}</p>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 py-16 lg:px-10">
+        <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <div class="media-card media-card-drafting reveal"></div>
+            <div class="reveal">
+                <div class="eyebrow-rule"></div>
+                <p class="section-label mt-5 text-xs font-semibold uppercase text-ink-600">Technical Capability</p>
+                <h2 class="mt-5 text-3xl font-semibold text-ink-950">Design support that stays connected to the realities of construction and operations.</h2>
+                <p class="mt-5 text-base leading-7 text-ink-600">The current site emphasizes attention to detail, coordination of bid documents, and review during construction. This redesign keeps that same message, but presents it with stronger hierarchy and less clutter.</p>
+                <p class="mt-4 text-base leading-7 text-ink-600">The result is a more current presentation for work that still feels measured, technical, and credible.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-slate-50 px-6 py-16 lg:px-10">
+        <div class="mx-auto max-w-7xl">
+            <div class="reveal max-w-3xl">
+                <div class="eyebrow-rule"></div>
+                <p class="section-label mt-5 text-xs font-semibold uppercase text-ink-600">Principals</p>
+                <h2 class="mt-5 text-3xl font-semibold text-ink-950">Leadership presented simply and professionally.</h2>
+            </div>
+            <div class="mt-10 grid gap-4 lg:grid-cols-2">
+                {% for leader in leaders %}
+                <article class="content-panel reveal p-7">
+                    <p class="text-xs uppercase tracking-[0.2em] text-ink-600">{{ leader.role }}</p>
+                    <h3 class="mt-4 text-2xl font-semibold text-ink-950">{{ leader.name }}</h3>
+                    <p class="mt-4 text-base leading-7 text-ink-600">{{ leader.summary }}</p>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    {% include "partials/cta_band.html" %}
+</main>
+{% endblock %}

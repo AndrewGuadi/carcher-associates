@@ -1,0 +1,740 @@
+Page Requirements
+
+Create these routes/pages:
+
+/ → Home
+
+/about → About
+
+/services → Services
+
+/projects → Projects
+
+/contact → Contact
+
+Optional:
+
+internal anchor sections on Home
+
+but do not replace the core pages with a one-page site
+
+Design Direction
+Overall Aesthetic Direction
+
+The aesthetic should feel inspired by the current website, but elevated.
+
+Visual tone:
+
+corporate
+
+technical
+
+architectural
+
+slightly traditional
+
+professional
+
+not trendy
+
+clean
+
+restrained
+
+image-supported
+
+text-clear
+
+Keywords:
+
+engineering confidence
+
+understated authority
+
+institutional trust
+
+calm professionalism
+
+clear structure
+
+precise spacing
+
+refined legacy business
+
+Avoid:
+
+neon
+
+playful startup colors
+
+glassmorphism
+
+flashy gradients everywhere
+
+overuse of rounded cartoon shapes
+
+giant animated blobs
+
+tech-bro UI
+
+parallax overload
+
+too much black/dark mode
+
+overly modern luxury branding
+
+Apple-style minimalism taken too far
+
+Color Direction
+
+Keep the palette restrained and rooted in the existing site feel.
+
+Suggested palette direction:
+
+white / off-white backgrounds
+
+deep charcoal or slate text
+
+muted steel blue or engineering blue as a primary accent
+
+light gray section backgrounds
+
+subtle navy / blue-gray support colors
+
+Possible palette example:
+
+#0f172a for deep text
+
+#334155 for secondary text
+
+#4b647d or similar muted professional blue
+
+#e2e8f0 / #f8fafc for light backgrounds
+
+#cbd5e1 for borders
+
+white cards
+
+The site should not feel colorful. It should feel stable.
+
+Typography Direction
+
+Use clean, readable typography with strong hierarchy.
+
+Suggested direction:
+
+system-safe or modern sans serif
+
+professional and readable
+
+not decorative
+
+Examples:
+
+Inter
+
+Source Sans
+
+system UI stack
+
+Typography should convey:
+
+clarity
+
+seriousness
+
+professionalism
+
+Use:
+
+strong page titles
+
+restrained supporting text
+
+generous spacing
+
+comfortable line lengths
+
+Image Direction
+
+The original site relies heavily on photography and banner images. Keep that general idea.
+
+The demo should include:
+
+hero / banner imagery
+
+service-related imagery
+
+project imagery
+
+institution / infrastructure / engineering visuals
+
+Use placeholders if needed, but structure the site so it clearly supports real imagery.
+
+Images should feel:
+
+architectural
+
+technical
+
+institutional
+
+infrastructure-driven
+
+healthcare / campus / government appropriate
+
+Avoid generic cheesy stock where possible.
+
+UX Goals
+
+The UX should be significantly better than the old site, but still simple.
+
+Improve:
+
+page spacing
+
+section hierarchy
+
+content grouping
+
+navbar clarity
+
+mobile layout
+
+readability
+
+project presentation
+
+service scannability
+
+contact clarity
+
+Keep simple:
+
+navigation
+
+calls to action
+
+page count
+
+content density
+
+Home Page Requirements
+
+The home page should be the strongest page in the demo.
+
+Hero Section
+
+Replace the outdated carousel feel with a single, strong hero area.
+
+Hero should include:
+
+a strong headline
+
+a short supporting paragraph
+
+1 to 2 restrained buttons
+
+background image or structured split layout with image
+
+Suggested positioning headline direction:
+
+Telecommunications Engineering & Low Voltage System Design
+
+Supporting Healthcare, Education, Government, and Commercial Infrastructure Projects
+
+The hero should feel credible and quiet, not salesy.
+
+Below Hero
+
+Include 3 to 5 sections such as:
+
+1. Intro / About Snapshot
+
+Short description of the firm and what they do.
+
+2. Markets Served
+
+A clean grid or card layout for:
+
+Healthcare
+
+Education
+
+Government
+
+Municipal
+
+Private Business
+
+Emergency Services
+
+Airports
+
+Sports Venues
+
+3. Services Snapshot
+
+A grouped summary of their engineering / consulting services.
+
+4. Credibility / Featured Institutions
+
+Highlight known institutional projects or sectors:
+
+Children’s Hospital of Philadelphia
+
+Hershey Medical
+
+Montgomery County Public Schools
+
+etc.
+
+5. Contact / CTA Band
+
+A restrained CTA section:
+
+Discuss a Project
+
+Contact Our Team
+
+No pushy copy.
+
+About Page Requirements
+
+The About page should feel more authoritative than the current one.
+
+Include:
+
+firm overview
+
+experience and philosophy
+
+collaborative process
+
+why detail matters
+
+how they work with architects, MEP, owners, and contractors
+
+drafting / technical capabilities such as AutoCAD and Revit
+
+Optional:
+
+A leadership / principals section for:
+
+Christopher N. Archer
+
+Kirk W. Winkelman
+
+This does not need to replicate the original expandable resume UI exactly.
+A cleaner card-based layout is better.
+
+Tone:
+
+credible
+
+grounded
+
+informed
+
+technically competent
+
+No exaggerated marketing language.
+
+Services Page Requirements
+
+The current services page is long and list-heavy. Improve clarity without dramatically increasing content.
+
+Organize services into logical grouped categories such as:
+
+Telecommunications Infrastructure
+
+Wireless & Distributed Systems
+
+Security & Access Control
+
+Healthcare Communication Systems
+
+Audio / Video & Public Address
+
+Reviews, Studies, and Drafting Services
+
+Each group should have:
+
+short description
+
+concise bullet list
+
+optional supporting image or icon treatment
+
+Also include:
+
+markets served
+
+reviews/studies
+
+drafting capabilities
+
+mention of AutoCAD / Revit if useful
+
+This page should feel highly scannable.
+
+Projects Page Requirements
+
+The projects page should communicate credibility more clearly than the old thumbnail-only layout.
+
+Include:
+
+featured project / institution cards
+
+optional collaborator section
+
+short descriptors for each project or institution type
+
+Example content direction:
+
+Healthcare facilities
+
+educational institutions
+
+government and municipal facilities
+
+sports venues
+
+military / federal installations
+
+If exact project details are limited, present them carefully and professionally without inventing specifics.
+
+Optional sections:
+
+Featured Institutional Work
+
+Collaborating Partners
+
+Sectors of Experience
+
+This page should visually reinforce:
+
+“They work on serious projects.”
+
+Contact Page Requirements
+
+The contact page should be clean and direct.
+
+Include:
+
+office information
+
+key contact names
+
+email addresses
+
+phone number
+
+address
+
+optional embedded map or map placeholder
+
+simple contact form UI mockup if desired
+
+Since this is a demo, the form does not need full backend handling unless Codex wants to wire a simple nonfunctional form placeholder.
+
+If a working form is included:
+
+keep it lightweight
+
+no database
+
+just basic POST handling or a placeholder message
+
+Navigation Requirements
+
+Navbar should be clean and professional.
+
+Include:
+
+logo text or placeholder logo
+
+Home
+
+About
+
+Services
+
+Projects
+
+Contact
+
+Requirements:
+
+sticky or semi-sticky header is acceptable
+
+mobile menu required
+
+no clutter
+
+no giant CTA button necessary, though a restrained “Contact” button variant is acceptable
+
+Footer Requirements
+
+Footer should feel polished and professional.
+
+Include:
+
+company name
+
+quick nav links
+
+contact info
+
+email
+
+phone
+
+copyright
+
+optional short positioning line
+
+Keep it simple.
+
+Interaction / JavaScript Requirements
+
+Use JavaScript lightly.
+
+Allowed / encouraged:
+
+mobile menu toggle
+
+subtle reveal-on-scroll if very restrained
+
+project card hover states
+
+accordion/toggle for principal bios if useful
+
+Avoid:
+
+complex animation frameworks
+
+heavy carousels
+
+unnecessary sliders
+
+flashy transitions
+
+anything that makes the site feel unstable or trendy
+
+If motion is used, it should be:
+
+subtle
+
+smooth
+
+low frequency
+
+professional
+
+Tailwind Usage Requirements
+
+Use Tailwind via CDN directly in templates.
+
+However:
+
+keep utility usage organized
+
+avoid unreadable class spam where possible
+
+use meaningful section structure
+
+supplement with site.css for repeated patterns or custom refinements
+
+Suggested reusable patterns:
+
+section wrappers
+
+container widths
+
+card classes
+
+muted text utilities
+
+headline spacing
+
+button variants
+
+Content Treatment Rules
+
+Do not invent wild marketing copy.
+Do not make the company sound like a startup agency.
+
+The copy should feel like an engineering consultancy:
+
+factual
+
+capable
+
+precise
+
+calm
+
+experienced
+
+Good copy style:
+
+“We support complex infrastructure projects with coordinated telecommunications design.”
+
+“Our work includes healthcare, education, municipal, and institutional environments.”
+
+“We provide consulting, documentation review, and drafting support.”
+
+Avoid copy like:
+
+“We transform your business”
+
+“Next-generation innovation powerhouse”
+
+“Cutting-edge disruption”
+
+“Scale faster with seamless solutions”
+
+Wrong tone.
+
+Demo Framing
+
+This is a demo for a prospective client.
+
+The code and presentation should make it easy for Andrew to say:
+
+“I put together a working visual direction based on your current site and business.”
+
+Therefore the demo should feel:
+
+respectful of the current brand
+
+not presumptuous
+
+clearly an upgrade
+
+realistic to implement
+
+Implementation Priorities
+
+Priority order:
+
+Priority 1
+
+Build clean Flask modular structure and routing.
+
+Priority 2
+
+Create a polished base.html with shared nav/footer.
+
+Priority 3
+
+Build strong home page first.
+
+Priority 4
+
+Build the remaining pages using a consistent design system.
+
+Priority 5
+
+Polish responsive behavior and spacing.
+
+Priority 6
+
+Add subtle JS only if it improves the experience.
+
+What Success Looks Like
+
+The demo is successful if:
+
+Chris can click through it and immediately recognize his company
+
+The site feels much newer without feeling foreign
+
+The demo looks credible for an established engineering consultant
+
+The site feels cleaner, easier to read, and more polished than the original
+
+It does not look bloated, trendy, or overbuilt
+
+It feels realistic, restrained, and professionally appropriate
+
+Hard Constraints
+
+Do not:
+
+build a giant SEO content machine
+
+create extra pages unless necessary
+
+overcomplicate user flows
+
+add unnecessary marketing sections
+
+force animations
+
+shift the brand into a completely different visual identity
+
+make it dark mode
+
+make it feel like a software company
+
+use React or complex frontend tooling
+
+Do:
+
+keep it simple
+
+keep it modular
+
+keep it professional
+
+keep it close to the current site’s business character
+
+modernize the layout, spacing, typography, and presentation
+
+Deliverables Codex Should Produce
+
+Codex should generate:
+
+modular Flask app structure
+
+routes for all required pages
+
+Tailwind CDN-based templates
+
+reusable base layout
+
+reusable nav/footer partials if appropriate
+
+site.css for custom refinements
+
+site.js for minimal interaction
+
+clean, readable code
+
+realistic placeholder images or image hooks
+
+comments where helpful but not excessive
+
+Final Build Instruction to Codex
+
+Build this like a real client demo Andrew can show immediately.
+
+Do not half-build it.
+Do not leave obvious placeholder junk everywhere.
+Do not make it look experimental.
+
+The result should feel presentation-ready:
+
+professional
+
+coherent
+
+navigable
+
+visually polished
+
+simple
+
+believable

@@ -1,0 +1,30 @@
+<header class="site-header sticky top-0 z-50 border-b border-slate-200/80 bg-white/88" data-site-header>
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+        <a href="{{ url_for('main.index') }}" class="flex items-center gap-4">
+            <span class="flex h-11 w-11 items-center justify-center border border-slate-300 bg-slate-50 text-sm font-semibold tracking-[0.28em] text-ink-950">CA</span>
+            <span>
+                <span class="block text-lg font-semibold tracking-[0.1em] text-ink-950">C. Archer &amp; Associates</span>
+                <span class="block text-xs uppercase tracking-[0.22em] text-ink-600">Technology Consultants</span>
+            </span>
+        </a>
+        <nav class="hidden items-center gap-8 md:flex">
+            <a href="{{ url_for('main.index') }}" class="nav-link text-sm font-medium {% if request.endpoint == 'main.index' %}is-active{% endif %}">Home</a>
+            <a href="{{ url_for('main.about') }}" class="nav-link text-sm font-medium {% if request.endpoint == 'main.about' %}is-active{% endif %}">About</a>
+            <a href="{{ url_for('main.services') }}" class="nav-link text-sm font-medium {% if request.endpoint == 'main.services' %}is-active{% endif %}">Services</a>
+            <a href="{{ url_for('main.projects') }}" class="nav-link text-sm font-medium {% if request.endpoint == 'main.projects' %}is-active{% endif %}">Projects</a>
+            <a href="{{ url_for('main.contact') }}" class="button-secondary">Contact</a>
+        </nav>
+        <button class="flex h-11 w-11 items-center justify-center border border-slate-300 text-ink-950 md:hidden" type="button" aria-label="Toggle menu" aria-expanded="false" data-menu-button>
+            <span class="text-xl leading-none">+</span>
+        </button>
+    </div>
+    <div class="hidden border-t border-slate-200 bg-white md:hidden" data-mobile-menu>
+        <nav class="mx-auto flex max-w-7xl flex-col px-6 py-4">
+            <a href="{{ url_for('main.index') }}" class="border-b border-slate-100 py-3 text-sm font-medium text-ink-800">Home</a>
+            <a href="{{ url_for('main.about') }}" class="border-b border-slate-100 py-3 text-sm font-medium text-ink-800">About</a>
+            <a href="{{ url_for('main.services') }}" class="border-b border-slate-100 py-3 text-sm font-medium text-ink-800">Services</a>
+            <a href="{{ url_for('main.projects') }}" class="border-b border-slate-100 py-3 text-sm font-medium text-ink-800">Projects</a>
+            <a href="{{ url_for('main.contact') }}" class="py-3 text-sm font-medium text-ink-800">Contact</a>
+        </nav>
+    </div>
+</header>

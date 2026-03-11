@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+    <section class="px-6 pb-12 pt-14 lg:px-10 lg:pt-16">
+        <div class="mx-auto max-w-7xl">
+            <div class="content-panel reveal grid gap-10 px-8 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:px-10 lg:py-12">
+                <div>
+                    <p class="section-label text-xs font-semibold uppercase text-ink-600">Services</p>
+                    <h1 class="mt-5 text-4xl font-semibold leading-tight text-ink-950">Consulting and design support organized into clearer, more scannable groups.</h1>
+                    <p class="mt-6 max-w-3xl text-lg leading-8 text-ink-600">The original service content is list-heavy. This version keeps the same scope, but presents the work in grouped categories that are easier to review on desktop and mobile.</p>
+                </div>
+                <div class="media-card media-card-infrastructure"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 py-16 lg:px-10">
+        <div class="mx-auto max-w-7xl">
+            <div class="grid gap-4 lg:grid-cols-2">
+                {% for group in service_groups %}
+                <article class="content-panel reveal p-7">
+                    <p class="text-xs uppercase tracking-[0.2em] text-ink-600">{{ group["title"] }}</p>
+                    <p class="mt-4 text-base leading-7 text-ink-600">{{ group["description"] }}</p>
+                    <ul class="mt-6 space-y-3 text-sm leading-6 text-ink-800">
+                        {% for item in group["items"] %}
+                        <li class="flex gap-3">
+                            <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-steel-700"></span>
+                            <span>{{ item }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-slate-50 px-6 py-16 lg:px-10">
+        <div class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+            <article class="content-panel reveal p-7">
+                <p class="text-xs uppercase tracking-[0.2em] text-ink-600">Markets</p>
+                <h2 class="mt-4 text-3xl font-semibold text-ink-950">Systems are tailored to the type of facility, its users, and its operational demands.</h2>
+                <div class="mt-8 grid gap-3 sm:grid-cols-2">
+                    {% for market in markets %}
+                    <div class="border border-slate-200 bg-white px-4 py-4 text-sm font-medium text-ink-800">{{ market }}</div>
+                    {% endfor %}
+                </div>
+            </article>
+            <article class="content-panel reveal p-7">
+                <p class="text-xs uppercase tracking-[0.2em] text-ink-600">Project Support</p>
+                <h2 class="mt-4 text-2xl font-semibold text-ink-950">Review and drafting services remain part of the offer.</h2>
+                <p class="mt-4 text-base leading-7 text-ink-600">In addition to system design, the firm supports studies, documentation review, construction-phase coordination, and drafting workflows that keep the technical scope aligned with the broader project team.</p>
+                <p class="mt-4 text-base leading-7 text-ink-600">AutoCAD and Revit are included where the delivery requirements call for them.</p>
+            </article>
+        </div>
+    </section>
+
+    {% include "partials/cta_band.html" %}
+</main>
+{% endblock %}

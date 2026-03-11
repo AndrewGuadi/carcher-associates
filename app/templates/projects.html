@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+    <section class="px-6 pb-12 pt-14 lg:px-10 lg:pt-16">
+        <div class="mx-auto max-w-7xl">
+            <div class="content-panel reveal grid gap-10 px-8 py-10 lg:grid-cols-[1fr_0.95fr] lg:px-10 lg:py-12">
+                <div>
+                    <p class="section-label text-xs font-semibold uppercase text-ink-600">Projects</p>
+                    <h1 class="mt-5 text-4xl font-semibold leading-tight text-ink-950">Project experience presented as credibility, not clutter.</h1>
+                    <p class="mt-6 max-w-3xl text-lg leading-8 text-ink-600">The goal of this page is to show that the firm works in serious environments. Where detailed project writeups are limited, the presentation stays careful and professional rather than overstated.</p>
+                </div>
+                <div class="media-card media-card-campus"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 py-16 lg:px-10">
+        <div class="mx-auto max-w-7xl">
+            <div class="reveal max-w-3xl">
+                <div class="eyebrow-rule"></div>
+                <p class="section-label mt-5 text-xs font-semibold uppercase text-ink-600">Featured Institutional Work</p>
+                <h2 class="mt-5 text-3xl font-semibold text-ink-950">A clearer way to communicate project seriousness and sector range.</h2>
+            </div>
+            <div class="mt-10 grid gap-4 lg:grid-cols-2">
+                {% for institution in institutions %}
+                <article class="project-card reveal p-7">
+                    <p class="text-xs uppercase tracking-[0.2em] text-ink-600">{{ institution.sector }}</p>
+                    <h3 class="mt-4 text-2xl font-semibold text-ink-950">{{ institution.name }}</h3>
+                    <p class="mt-4 text-base leading-7 text-ink-600">{{ institution.summary }}</p>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-slate-50 px-6 py-16 lg:px-10">
+        <div class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">
+            <article class="content-panel reveal p-7 lg:col-span-2">
+                <p class="text-xs uppercase tracking-[0.2em] text-ink-600">Sectors of Experience</p>
+                <div class="mt-6 grid gap-3 sm:grid-cols-2">
+                    <div class="border border-slate-200 bg-white px-4 py-4 text-sm text-ink-800">Healthcare facilities</div>
+                    <div class="border border-slate-200 bg-white px-4 py-4 text-sm text-ink-800">Educational institutions</div>
+                    <div class="border border-slate-200 bg-white px-4 py-4 text-sm text-ink-800">Government and municipal facilities</div>
+                    <div class="border border-slate-200 bg-white px-4 py-4 text-sm text-ink-800">Sports venues</div>
+                    <div class="border border-slate-200 bg-white px-4 py-4 text-sm text-ink-800">Airports and transportation settings</div>
+                    <div class="border border-slate-200 bg-white px-4 py-4 text-sm text-ink-800">Military and federal installations</div>
+                </div>
+            </article>
+            <article class="content-panel reveal p-7">
+                <p class="text-xs uppercase tracking-[0.2em] text-ink-600">Why This Matters</p>
+                <p class="mt-4 text-base leading-7 text-ink-600">For this firm, project experience is a signal of trust and coordination ability. The presentation stays concise, but it should still make clear that the work sits inside complex institutional environments.</p>
+            </article>
+        </div>
+    </section>
+
+    <section class="px-6 py-16 lg:px-10">
+        <div class="mx-auto max-w-7xl">
+            <div class="reveal max-w-3xl">
+                <div class="eyebrow-rule"></div>
+                <p class="section-label mt-5 text-xs font-semibold uppercase text-ink-600">Collaborating Partners</p>
+                <h2 class="mt-5 text-3xl font-semibold text-ink-950">The work is collaborative by nature.</h2>
+            </div>
+            <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {% for collaborator in collaborators %}
+                <article class="metric-card reveal p-6">
+                    <p class="text-base font-medium text-ink-950">{{ collaborator }}</p>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    {% include "partials/cta_band.html" %}
+</main>
+{% endblock %}

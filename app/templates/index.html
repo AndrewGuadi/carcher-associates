@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+    <section class="px-6 pb-20 pt-12 lg:px-10 lg:pt-16">
+        <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div class="hero-panel reveal px-8 py-10 lg:px-10 lg:py-12">
+                <div class="eyebrow-rule"></div>
+                <p class="section-label mt-5 text-xs font-semibold uppercase text-ink-600">Low Voltage Consulting</p>
+                <h1 class="mt-5 max-w-3xl text-4xl font-semibold leading-tight text-ink-950 sm:text-5xl">Telecommunications Engineering &amp; Low Voltage System Design</h1>
+                <p class="mt-6 max-w-2xl text-lg leading-8 text-ink-600">Supporting healthcare, education, government, and commercial infrastructure projects with coordinated design, documentation, and construction-phase review.</p>
+                <div class="mt-8 flex flex-wrap gap-3">
+                    <a href="{{ url_for('main.services') }}" class="button-primary">Explore Services</a>
+                    <a href="{{ url_for('main.contact') }}" class="button-secondary">Contact</a>
+                </div>
+                <dl class="mt-10 grid gap-4 border-t border-slate-200 pt-8 sm:grid-cols-3">
+                    <div>
+                        <dt class="text-xs uppercase tracking-[0.2em] text-ink-600">Project Types</dt>
+                        <dd class="mt-2 text-sm font-medium text-ink-950">New, existing, and renovated facilities</dd>
+                    </div>
+                    <div>
+                        <dt class="text-xs uppercase tracking-[0.2em] text-ink-600">Tools</dt>
+                        <dd class="mt-2 text-sm font-medium text-ink-950">AutoCAD and Revit support</dd>
+                    </div>
+                    <div>
+                        <dt class="text-xs uppercase tracking-[0.2em] text-ink-600">Focus</dt>
+                        <dd class="mt-2 text-sm font-medium text-ink-950">Clear documentation and owner standards</dd>
+                    </div>
+                </dl>
+            </div>
+            <div class="hero-media reveal flex items-end p-8">
+                <div class="max-w-xs border border-white/20 bg-slate-950/55 p-5 text-white backdrop-blur-sm">
+                    <p class="text-xs uppercase tracking-[0.2em] text-slate-300">Institutional Work</p>
+                    <p class="mt-3 text-xl font-semibold">Technical systems planning for facilities that need reliability, coordination, and long-term maintainability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 py-16 lg:px-10">
+        <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <div class="media-card media-card-drafting reveal"></div>
+            <div class="reveal">
+                <div class="eyebrow-rule"></div>
+                <p class="section-label mt-5 text-xs font-semibold uppercase text-ink-600">Firm Overview</p>
+                <h2 class="mt-5 text-3xl font-semibold text-ink-950">An established consulting practice with a straightforward approach.</h2>
+                <p class="mt-5 max-w-2xl text-base leading-7 text-ink-600">C. Archer &amp; Associates provides telecommunications and low voltage design support for institutional and commercial projects. The emphasis is on coordinated bid documents, practical system planning, and careful review during construction.</p>
+                <p class="mt-4 max-w-2xl text-base leading-7 text-ink-600">The work is shaped by collaboration with architects, MEP engineers, owners, end users, and contractors so systems are integrated cleanly into the broader project team workflow.</p>
+                <a href="{{ url_for('main.about') }}" class="mt-8 inline-flex text-sm font-semibold uppercase tracking-[0.18em] text-steel-700">Learn more about the firm</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 py-16 lg:px-10">
+        <div class="mx-auto max-w-7xl">
+            <div class="reveal flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <div>
+                    <div class="eyebrow-rule"></div>
+                    <p class="section-label mt-5 text-xs font-semibold uppercase text-ink-600">Markets Served</p>
+                    <h2 class="mt-5 text-3xl font-semibold text-ink-950">Work shaped around institutional, public, and business environments.</h2>
+                </div>
+                <p class="max-w-xl text-base leading-7 text-ink-600">The firm’s experience spans environments where clear standards, maintainability, and coordination matter more than unnecessary complexity.</p>
+            </div>
+            <div class="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                {% for market in markets %}
+                <article class="metric-card reveal p-6">
+                    <p class="text-xs uppercase tracking-[0.2em] text-ink-600">Sector {{ "%02d"|format(loop.index) }}</p>
+                    <h3 class="mt-4 text-xl font-semibold text-ink-950">{{ market }}</h3>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-slate-50 px-6 py-16 lg:px-10">
+        <div class="mx-auto max-w-7xl">
+            <div class="reveal flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <div>
+                    <div class="eyebrow-rule"></div>
+                    <p class="section-label mt-5 text-xs font-semibold uppercase text-ink-600">Services Snapshot</p>
+                    <h2 class="mt-5 text-3xl font-semibold text-ink-950">Core consulting areas presented more clearly.</h2>
+                </div>
+                <a href="{{ url_for('main.services') }}" class="text-sm font-semibold uppercase tracking-[0.18em] text-steel-700">Full service page</a>
+            </div>
+            <div class="mt-10 grid gap-4 lg:grid-cols-3">
+                {% for group in service_groups[:3] %}
+                <article class="content-panel reveal p-6">
+                    <p class="text-xs uppercase tracking-[0.2em] text-ink-600">{{ group["title"] }}</p>
+                    <p class="mt-4 text-base leading-7 text-ink-600">{{ group["description"] }}</p>
+                    <ul class="mt-5 space-y-3 text-sm leading-6 text-ink-800">
+                        {% for item in group["items"][:3] %}
+                        <li class="flex gap-3"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-steel-700"></span><span>{{ item }}</span></li>
+                        {% endfor %}
+                    </ul>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section class="px-6 py-16 lg:px-10">
+        <div class="mx-auto max-w-7xl">
+            <div class="reveal flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <div>
+                    <div class="eyebrow-rule"></div>
+                    <p class="section-label mt-5 text-xs font-semibold uppercase text-ink-600">Featured Institutions</p>
+                    <h2 class="mt-5 text-3xl font-semibold text-ink-950">Credibility grounded in serious project environments.</h2>
+                </div>
+                <a href="{{ url_for('main.projects') }}" class="text-sm font-semibold uppercase tracking-[0.18em] text-steel-700">Project experience</a>
+            </div>
+            <div class="mt-10 grid gap-4 lg:grid-cols-2">
+                {% for institution in institutions %}
+                <article class="project-card reveal p-7">
+                    <p class="text-xs uppercase tracking-[0.2em] text-ink-600">{{ institution.sector }}</p>
+                    <h3 class="mt-4 text-2xl font-semibold text-ink-950">{{ institution.name }}</h3>
+                    <p class="mt-4 text-base leading-7 text-ink-600">{{ institution.summary }}</p>
+                </article>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    {% include "partials/cta_band.html" %}
+</main>
+{% endblock %}
