@@ -1,7 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
+    if (window.lucide) {
+        window.lucide.createIcons();
+    }
+
     const header = document.querySelector("[data-site-header]");
     const menuButton = document.querySelector("[data-menu-button]");
     const menu = document.querySelector("[data-mobile-menu]");
+    const menuOpenIcon = document.querySelector("[data-menu-open]");
+    const menuCloseIcon = document.querySelector("[data-menu-close]");
     const yearNode = document.querySelector("[data-year]");
     const reveals = document.querySelectorAll(".reveal");
 
@@ -18,6 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         menuButton.setAttribute("aria-expanded", String(expanded));
         menu.classList.toggle("hidden", !expanded);
+        if (menuOpenIcon && menuCloseIcon) {
+            menuOpenIcon.classList.toggle("hidden", expanded);
+            menuCloseIcon.classList.toggle("hidden", !expanded);
+        }
     };
 
     syncHeader();

@@ -2,69 +2,75 @@
 
 {% block content %}
 <main>
-    <section class="px-6 pb-12 pt-14 lg:px-10 lg:pt-16">
-        <div class="mx-auto max-w-7xl">
-            <div class="content-panel reveal grid gap-10 px-8 py-10 lg:grid-cols-[1fr_0.95fr] lg:px-10 lg:py-12">
-                <div>
-                    <p class="section-label text-xs font-semibold uppercase text-ink-600">Projects</p>
-                    <h1 class="mt-5 text-4xl font-semibold leading-tight text-ink-950">Project experience presented as credibility, not clutter.</h1>
-                    <p class="mt-6 max-w-3xl text-lg leading-8 text-ink-600">The goal of this page is to show that the firm works in serious environments. Where detailed project writeups are limited, the presentation stays careful and professional rather than overstated.</p>
-                </div>
-                <div class="media-card media-card-campus"></div>
+    <section class="page-hero flex items-center pt-24" style="--page-image: url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1800&q=80');">
+        <div class="page-hero-copy mx-auto w-full max-w-7xl px-6 md:px-12">
+            <div class="max-w-3xl">
+                <p class="text-sm font-semibold uppercase tracking-[0.3em] text-[#009ee2]">Projects</p>
+                <h1 class="mt-5 text-5xl font-bold leading-tight text-white md:text-6xl">A stronger presentation of institutional and collaborator credibility.</h1>
+                <p class="mt-6 max-w-2xl border-l-4 border-[#e31837] pl-6 text-lg leading-relaxed text-gray-200">This page keeps the content careful and professional, but presents it with the bolder visual treatment established by the reference home design.</p>
             </div>
         </div>
     </section>
 
-    <section class="px-6 py-16 lg:px-10">
-        <div class="mx-auto max-w-7xl">
-            <div class="reveal max-w-3xl">
-                <div class="eyebrow-rule"></div>
-                <p class="section-label mt-5 text-xs font-semibold uppercase text-ink-600">Featured Institutional Work</p>
-                <h2 class="mt-5 text-3xl font-semibold text-ink-950">A clearer way to communicate project seriousness and sector range.</h2>
+    <section class="bg-white py-24">
+        <div class="mx-auto max-w-7xl px-6 md:px-12">
+            <div class="mb-16 reveal text-center">
+                <h2 class="mb-6 text-3xl font-bold text-gray-900 md:text-5xl">Featured Institutional Work</h2>
+                <p class="mx-auto max-w-2xl text-lg text-gray-600">Presented as concise credibility signals rather than long project writeups.</p>
             </div>
-            <div class="mt-10 grid gap-4 lg:grid-cols-2">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
                 {% for institution in institutions %}
-                <article class="project-card reveal p-7">
-                    <p class="text-xs uppercase tracking-[0.2em] text-ink-600">{{ institution.sector }}</p>
-                    <h3 class="mt-4 text-2xl font-semibold text-ink-950">{{ institution.name }}</h3>
-                    <p class="mt-4 text-base leading-7 text-ink-600">{{ institution.summary }}</p>
+                <article class="project-card reveal bg-white">
+                    <div class="media-tile relative h-60 overflow-hidden">
+                        <div class="{% if loop.index is odd %}media-tint-red{% else %}media-tint-blue{% endif %}"></div>
+                        <img src="{% if institution.sector == 'Healthcare' %}https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1000&q=80{% elif institution.sector == 'Education' %}https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1000&q=80{% else %}https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80{% endif %}" alt="{{ institution.name }}" class="h-full w-full object-cover">
+                    </div>
+                    <div class="border-t-4 {% if loop.index is odd %}border-[#e31837]{% else %}border-[#009ee2]{% endif %} p-8">
+                        <p class="text-sm font-semibold uppercase tracking-widest {% if loop.index is odd %}text-[#e31837]{% else %}text-[#009ee2]{% endif %}">{{ institution.sector }}</p>
+                        <h3 class="mt-4 text-2xl font-bold text-gray-900">{{ institution.name }}</h3>
+                        <p class="mt-4 text-gray-600">{{ institution.summary }}</p>
+                    </div>
                 </article>
                 {% endfor %}
             </div>
         </div>
     </section>
 
-    <section class="bg-slate-50 px-6 py-16 lg:px-10">
-        <div class="mx-auto grid max-w-7xl gap-6 lg:grid-cols-3">
-            <article class="content-panel reveal p-7 lg:col-span-2">
-                <p class="text-xs uppercase tracking-[0.2em] text-ink-600">Sectors of Experience</p>
-                <div class="mt-6 grid gap-3 sm:grid-cols-2">
-                    <div class="border border-slate-200 bg-white px-4 py-4 text-sm text-ink-800">Healthcare facilities</div>
-                    <div class="border border-slate-200 bg-white px-4 py-4 text-sm text-ink-800">Educational institutions</div>
-                    <div class="border border-slate-200 bg-white px-4 py-4 text-sm text-ink-800">Government and municipal facilities</div>
-                    <div class="border border-slate-200 bg-white px-4 py-4 text-sm text-ink-800">Sports venues</div>
-                    <div class="border border-slate-200 bg-white px-4 py-4 text-sm text-ink-800">Airports and transportation settings</div>
-                    <div class="border border-slate-200 bg-white px-4 py-4 text-sm text-ink-800">Military and federal installations</div>
-                </div>
-            </article>
-            <article class="content-panel reveal p-7">
-                <p class="text-xs uppercase tracking-[0.2em] text-ink-600">Why This Matters</p>
-                <p class="mt-4 text-base leading-7 text-ink-600">For this firm, project experience is a signal of trust and coordination ability. The presentation stays concise, but it should still make clear that the work sits inside complex institutional environments.</p>
-            </article>
+    <section class="blue-band py-24">
+        <div class="mx-auto max-w-7xl px-6 md:px-12">
+            <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                <article class="info-card reveal bg-white p-8 lg:col-span-2">
+                    <h2 class="text-3xl font-bold text-gray-900">Sectors of Experience</h2>
+                    <div class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                        <div class="border border-gray-100 px-4 py-4 text-sm text-gray-800">Healthcare facilities</div>
+                        <div class="border border-gray-100 px-4 py-4 text-sm text-gray-800">Educational institutions</div>
+                        <div class="border border-gray-100 px-4 py-4 text-sm text-gray-800">Government and municipal facilities</div>
+                        <div class="border border-gray-100 px-4 py-4 text-sm text-gray-800">Sports venues</div>
+                        <div class="border border-gray-100 px-4 py-4 text-sm text-gray-800">Airports and transportation settings</div>
+                        <div class="border border-gray-100 px-4 py-4 text-sm text-gray-800">Military and federal installations</div>
+                    </div>
+                </article>
+                <article class="info-card reveal bg-[#111] p-8 text-white">
+                    <h2 class="text-3xl font-bold">Project Signal</h2>
+                    <p class="mt-4 text-gray-300">The visual treatment is stronger, but the tone remains measured. The point is to show serious work, not exaggerate it.</p>
+                </article>
+            </div>
         </div>
     </section>
 
-    <section class="px-6 py-16 lg:px-10">
-        <div class="mx-auto max-w-7xl">
-            <div class="reveal max-w-3xl">
-                <div class="eyebrow-rule"></div>
-                <p class="section-label mt-5 text-xs font-semibold uppercase text-ink-600">Collaborating Partners</p>
-                <h2 class="mt-5 text-3xl font-semibold text-ink-950">The work is collaborative by nature.</h2>
+    <section class="bg-white py-24">
+        <div class="mx-auto max-w-7xl px-6 md:px-12">
+            <div class="mb-16 reveal text-center">
+                <h2 class="mb-6 text-3xl font-bold text-gray-900 md:text-5xl">Collaborating Partners</h2>
+                <p class="mx-auto max-w-2xl text-lg text-gray-600">Architecture, engineering, and construction relationships remain part of the credibility story.</p>
             </div>
-            <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {% for collaborator in collaborators %}
-                <article class="metric-card reveal p-6">
-                    <p class="text-base font-medium text-ink-950">{{ collaborator }}</p>
+                <article class="info-card reveal bg-white p-8 text-center">
+                    <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#009ee2]">
+                        <i data-lucide="building-2" class="h-6 w-6 text-white"></i>
+                    </div>
+                    <p class="mt-5 text-lg font-semibold text-gray-900">{{ collaborator }}</p>
                 </article>
                 {% endfor %}
             </div>

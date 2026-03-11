@@ -5,26 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page_title }} | {{ site.name }}</title>
     <meta name="description" content="{{ site.tagline }}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
+                        brand: {
+                            red: '#e31837',
+                            blue: '#009ee2'
+                        },
                         ink: {
-                            950: '#0f172a',
-                            800: '#1e293b',
-                            600: '#475569'
+                            950: '#111827',
+                            700: '#374151',
+                            500: '#6b7280'
                         },
-                        steel: {
-                            700: '#4b647d',
-                            500: '#6f8599'
+                        panel: '#111111'
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
                         },
-                        mist: '#f8fafc',
-                        line: '#cbd5e1'
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
                     }
                 }
             }
@@ -32,11 +43,9 @@
     </script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
 </head>
-<body class="site-shell text-ink-800">
+<body class="min-h-screen overflow-x-hidden bg-white text-gray-800 selection:bg-[#009ee2] selection:text-white">
     {% include "partials/nav.html" %}
-    <div class="page-grid">
-        {% block content %}{% endblock %}
-    </div>
+    {% block content %}{% endblock %}
     {% include "partials/footer.html" %}
     <script src="{{ url_for('static', filename='js/site.js') }}"></script>
 </body>

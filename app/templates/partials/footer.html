@@ -1,32 +1,46 @@
-<footer class="border-t border-slate-200 bg-slate-950 text-slate-200">
-    <div class="mx-auto grid max-w-7xl gap-10 px-6 py-14 lg:grid-cols-[1.5fr_1fr_1fr] lg:px-10">
-        <div class="space-y-4">
-            <p class="text-lg font-semibold tracking-[0.08em] text-white">{{ site.name }}</p>
-            <p class="max-w-xl text-sm leading-7 text-slate-400">{{ site.tagline }}</p>
-        </div>
-        <div class="space-y-4">
-            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Navigation</p>
-            <div class="grid gap-3 text-sm">
-                <a href="{{ url_for('main.index') }}" class="w-fit hover:text-white">Home</a>
-                <a href="{{ url_for('main.about') }}" class="w-fit hover:text-white">About</a>
-                <a href="{{ url_for('main.services') }}" class="w-fit hover:text-white">Services</a>
-                <a href="{{ url_for('main.projects') }}" class="w-fit hover:text-white">Projects</a>
-                <a href="{{ url_for('main.contact') }}" class="w-fit hover:text-white">Contact</a>
+<footer class="border-t-[10px] border-[#e31837] bg-[#111] py-16">
+    <div class="mx-auto grid max-w-7xl gap-12 px-6 md:grid-cols-4 md:px-12">
+        <div class="col-span-1 flex flex-col items-start gap-6 md:col-span-2">
+            <div class="flex flex-col items-center justify-center">
+                <svg width="40" height="40" viewBox="0 0 100 100" class="mb-1">
+                    <path d="M 80 50 C 80 20, 50 10, 30 30 C 10 50, 30 90, 60 85 C 75 80, 80 65, 80 65" fill="none" stroke="#e31837" stroke-width="12" stroke-linecap="round"/>
+                    <circle cx="50" cy="50" r="8" fill="#e31837" />
+                </svg>
+                <div class="text-center">
+                    <h1 class="text-xl font-bold leading-none tracking-widest text-white">ARCHER</h1>
+                    <p class="mt-1 text-[0.55rem] font-medium tracking-[0.2em] text-gray-400">AND ASSOCIATES</p>
+                </div>
             </div>
+            <p class="max-w-sm text-sm leading-relaxed text-gray-400">{{ site.tagline }}</p>
         </div>
-        <div class="space-y-4">
-            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Contact</p>
-            <div class="grid gap-3 text-sm text-slate-300">
-                <p>{{ site.location }}</p>
-                <p>{{ site.phone }}</p>
-                <p>{{ site.email }}</p>
+
+        <div class="flex flex-col space-y-4">
+            <h4 class="mb-2 text-sm font-bold uppercase tracking-widest text-white">Navigation</h4>
+            <a href="{{ url_for('main.index') }}" class="w-fit text-sm text-gray-400 transition-colors hover:text-[#009ee2]">Home</a>
+            <a href="{{ url_for('main.about') }}" class="w-fit text-sm text-gray-400 transition-colors hover:text-[#009ee2]">About Us</a>
+            <a href="{{ url_for('main.services') }}" class="w-fit text-sm text-gray-400 transition-colors hover:text-[#009ee2]">Services</a>
+            <a href="{{ url_for('main.projects') }}" class="w-fit text-sm text-gray-400 transition-colors hover:text-[#009ee2]">Projects</a>
+            <a href="{{ url_for('main.contact') }}" class="w-fit text-sm text-gray-400 transition-colors hover:text-[#009ee2]">Contact Us</a>
+        </div>
+
+        <div class="flex flex-col space-y-4">
+            <h4 class="mb-2 text-sm font-bold uppercase tracking-widest text-white">Contact</h4>
+            <div class="flex flex-col gap-3 text-sm text-gray-400">
+                <span class="flex items-center gap-2">
+                    <i data-lucide="map-pin" class="h-4 w-4 text-[#e31837]"></i> {{ site.location }}
+                </span>
+                <span class="flex items-center gap-2">
+                    <i data-lucide="phone" class="h-4 w-4 text-[#e31837]"></i> {{ site.phone }}
+                </span>
+                <span class="flex items-center gap-2">
+                    <i data-lucide="mail" class="h-4 w-4 text-[#e31837]"></i> {{ site.email }}
+                </span>
             </div>
         </div>
     </div>
-    <div class="border-t border-slate-800">
-        <div class="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-5 text-xs text-slate-500 md:flex-row md:items-center md:justify-between lg:px-10">
-            <p>&copy; <span data-year></span> {{ site.name }}. All rights reserved.</p>
-            <p>Demo website direction for an established consulting practice.</p>
-        </div>
+
+    <div class="mx-auto mt-16 flex max-w-7xl flex-col items-center justify-between gap-4 border-t border-gray-800 px-6 pt-8 text-xs text-gray-600 md:flex-row md:px-12">
+        <p>&copy; <span data-year></span> {{ site.name }}. All rights reserved.</p>
+        <p>Demo website direction based on the current company aesthetic.</p>
     </div>
-</footer>
+ </footer>
